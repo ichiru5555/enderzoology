@@ -1,8 +1,6 @@
 package fuzs.enderzoology.init;
 
 import fuzs.enderzoology.EnderZoology;
-import fuzs.enderzoology.capability.SoulboundCapability;
-import fuzs.enderzoology.capability.SoulboundCapabilityImpl;
 import fuzs.enderzoology.world.effect.DisplacementMobEffect;
 import fuzs.enderzoology.world.entity.animal.Owl;
 import fuzs.enderzoology.world.entity.item.PrimedCharge;
@@ -11,7 +9,6 @@ import fuzs.enderzoology.world.entity.projectile.ThrownOwlEgg;
 import fuzs.enderzoology.world.item.OwlItem;
 import fuzs.enderzoology.world.item.enchantment.DecayEnchantment;
 import fuzs.enderzoology.world.item.enchantment.RepellentEnchantment;
-import fuzs.enderzoology.world.item.enchantment.SoulboundEnchantment;
 import fuzs.enderzoology.world.item.enchantment.WitheringEnchantment;
 import fuzs.enderzoology.world.level.EnderExplosion;
 import fuzs.enderzoology.world.level.block.ChargeBlock;
@@ -74,7 +71,6 @@ public class ModRegistry {
     public static final RegistryReference<Item> FALLEN_KNIGHT_SPAWN_EGG_ITEM = REGISTRY.registerSpawnEggItem(FALLEN_KNIGHT_ENTITY_TYPE, 0x365A25, 0xA0A0A0);
     public static final RegistryReference<Enchantment> DECAY_ENCHANTMENT = REGISTRY.registerEnchantment("decay", () -> new DecayEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));
     public static final RegistryReference<Enchantment> REPELLENT_ENCHANTMENT = REGISTRY.registerEnchantment("repellent", () -> new RepellentEnchantment(Enchantment.Rarity.VERY_RARE, ARMOR_SLOTS));
-    public static final RegistryReference<Enchantment> SOULBOUND_ENCHANTMENT = REGISTRY.registerEnchantment("soulbound", () -> new SoulboundEnchantment(Enchantment.Rarity.VERY_RARE, EquipmentSlot.values()));
     public static final RegistryReference<Enchantment> WITHERING_ENCHANTMENT = REGISTRY.registerEnchantment("withering", () -> new WitheringEnchantment(Enchantment.Rarity.RARE, EquipmentSlot.MAINHAND));
     public static final RegistryReference<MobEffect> DISPLACEMENT_MOB_EFFECT = REGISTRY.registerMobEffect("displacement", () -> new DisplacementMobEffect(MobEffectCategory.HARMFUL, 9643043));
     public static final RegistryReference<Potion> DISPLACEMENT_POTION = REGISTRY.registerPotion("displacement", () -> new Potion(new MobEffectInstance(DISPLACEMENT_MOB_EFFECT.get(), 1)));
@@ -97,7 +93,6 @@ public class ModRegistry {
     public static final RegistryReference<SoundEvent> OWL_EGG_THROW_SOUND_EVENT = REGISTRY.registerSoundEvent("entity.owl_egg.throw");
 
     private static final CapabilityController CAPABILITIES = CapabilityController.from(EnderZoology.MOD_ID);
-    public static final CapabilityKey<SoulboundCapability> SOULBOUND_CAPABILITY = CAPABILITIES.registerPlayerCapability("soulbound", SoulboundCapability.class, player -> new SoulboundCapabilityImpl(), PlayerRespawnCopyStrategy.NEVER);
 
     public static final TagKey<EntityType<?>> FALLEN_MOUNT_TARGETS_ENTITY_TYPE_TAG = REGISTRY.registerEntityTypeTag("fallen_mount_targets");
     public static final TagKey<EntityType<?>> CONCUSSION_IMMUNE_ENTITY_TYPE_TAG = REGISTRY.registerEntityTypeTag("concussion_immune");

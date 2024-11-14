@@ -3,7 +3,6 @@ package fuzs.enderzoology;
 import fuzs.enderzoology.config.CommonConfig;
 import fuzs.enderzoology.handler.HuntingBowHandler;
 import fuzs.enderzoology.handler.MobHuntingHandler;
-import fuzs.enderzoology.handler.SoulboundRespawnHandler;
 import fuzs.enderzoology.init.ModRegistry;
 import fuzs.enderzoology.world.entity.EntityAttributeProviders;
 import fuzs.enderzoology.world.entity.SpawnPlacementRules;
@@ -75,7 +74,6 @@ public class EnderZoology implements ModConstructor {
         ArrowLooseCallback.EVENT.register(HuntingBowHandler::onArrowLoose);
         UseItemEvents.TICK.register(HuntingBowHandler::onUseItemTick);
         ServerEntityLevelEvents.LOAD.register(MobHuntingHandler::onLoad);
-        PlayerEvents.COPY.register(SoulboundRespawnHandler::onPlayerClone);
     }
 
     @Override

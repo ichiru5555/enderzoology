@@ -1,6 +1,5 @@
 package fuzs.enderzoology;
 
-import fuzs.enderzoology.capability.SoulboundCapability;
 import fuzs.enderzoology.data.*;
 import fuzs.enderzoology.init.ModRegistry;
 import fuzs.enderzoology.init.ModRegistryForge;
@@ -27,11 +26,6 @@ public class EnderZoologyForge {
     public static void onConstructMod(final FMLConstructModEvent evt) {
         ModConstructor.construct(EnderZoology.MOD_ID, EnderZoology::new, ContentRegistrationFlags.BIOME_MODIFICATIONS);
         ModRegistryForge.touch();
-        registerCapabilities();
-    }
-
-    private static void registerCapabilities() {
-        ForgeCapabilityHelper.setCapabilityToken(ModRegistry.SOULBOUND_CAPABILITY, new CapabilityToken<SoulboundCapability>() {});
     }
 
     @SubscribeEvent
